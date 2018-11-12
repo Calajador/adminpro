@@ -1,3 +1,48 @@
-<div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+
+
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+
+              <h5 class="card-title">Barra de progreso</h5>
+
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="porcentaje1" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje1 + '%'" ></div>
+            </div>
+
+            <br>
+
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.ariaValuenow]="porcentaje2" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje2 + '%'" ></div>
+            </div>
+
+          </div>
+      </div>
+  </div>
 </div>
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <app-incrementador (cambioValor)='porcentaje1 = $event' leyenda = 'porcentaje Azul' [porcentaje]='porcentaje1'></app-incrementador>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <app-incrementador (cambioValor)='porcentaje2 = $event' leyenda = 'porcentaje Verde' [porcentaje]='porcentaje2'></app-incrementador>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
