@@ -20,6 +20,7 @@ import { pages_router } from './pages.routes';
 
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficaDonutComponent } from '../components/grafica-donut/grafica-donut.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -30,7 +31,8 @@ import { GraficaDonutComponent } from '../components/grafica-donut/grafica-donut
     ProgressComponent,
     Graficas1Component,
     IncrementadorComponent,
-    GraficaDonutComponent
+    GraficaDonutComponent,
+    AccountSettingsComponent
   ],
   exports: [
     PagesComponent,
