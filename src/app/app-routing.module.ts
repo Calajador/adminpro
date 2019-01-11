@@ -8,17 +8,22 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { PagesComponent } from './pages/pages.component';
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { PromesasComponent } from './pages/promesas/promesas.component';
+import { RxjsComponent } from './pages/rxjs/rxjs.component';
+import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [LoginGuardGuard],
     children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'progress', component: ProgressComponent},
       {path: 'graficas1', component: Graficas1Component},
+      {path: 'promesas', component: PromesasComponent},
+      {path: 'rxjs', component: RxjsComponent},
       {path: 'account-settings', component: AccountSettingsComponent},
-
       {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     ]
   },
