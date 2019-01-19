@@ -11,6 +11,7 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
 import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -18,12 +19,13 @@ const routes: Routes = [
     component: PagesComponent,
     canActivate: [LoginGuardGuard],
     children: [
-      {path: 'dashboard', component: DashboardComponent},
-      {path: 'progress', component: ProgressComponent},
-      {path: 'graficas1', component: Graficas1Component},
-      {path: 'promesas', component: PromesasComponent},
-      {path: 'rxjs', component: RxjsComponent},
-      {path: 'account-settings', component: AccountSettingsComponent},
+      {path: 'dashboard', component: DashboardComponent, data: { titulo: 'DashBoard'}},
+      {path: 'progress', component: ProgressComponent, data: { titulo: 'Progres'}},
+      {path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas'}},
+      {path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'}},
+      {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs'}},
+      {path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema'}},
+      {path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario'}},
       {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     ]
   },

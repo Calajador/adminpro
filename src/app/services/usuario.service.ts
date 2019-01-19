@@ -5,6 +5,7 @@ import { URL_SERVICIOS } from '../config/config';
 import { map } from 'rxjs/operators';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from './subir-archivo.service';
 
 
 @Injectable({
@@ -15,7 +16,8 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(private http: HttpClient, public router: Router) {
+  constructor(private http: HttpClient, public router: Router,
+              public _subirArchivo: SubirArchivoService) {
     this.cargarStorage();
   }
 
@@ -93,5 +95,53 @@ export class UsuarioService {
         swal('Usuario creado', usuario.email, 'success');
         return res.usuario;
       }));
+  }
+
+  actualizarUsuario(usuario: Usuario) {
+
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    url += '?token=' + this.token;
+    console.log(url);
+
+    return this.http.put(url, usuario)
+        .pipe(map( (res: any) => {
+
+          let usuarioDB: Usuario = res.usuario;
+
+          this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+          swal('Usuario Actualizado', usuario.nombre, 'success');
+
+          return true;
+        }));
+  }
+
+  cambiarImagen(archivo: File, id: string) {
+
+    // =====================================
+    // metodo con la promesa y Vanilla JS
+    // =====================================
+
+    // this._subirArchivo.subirArchivo( archivo, 'usuarios', id )
+    //       .then( (resp: any) => {
+
+    //         this.usuario.img = resp.usuario.img;
+    //         swal( 'Imagen Actualizada', this.usuario.nombre, 'success' );
+    //         this.guardarStorage( id, this.token, this.usuario );
+
+    //       })
+    //       .catch( resp => {
+    //         console.log( resp );
+    //       }) ;
+
+
+    this._subirArchivo.subirArchivo(archivo, 'usuarios', id)
+        .subscribe( (res: any) => {
+
+          console.log(res);
+
+          this.usuario.img = res.usuario.img;
+          swal('Imagen Actualizada', this.usuario.nombre, 'success');
+          this.guardarStorage(id, this.token, this.usuario);
+        });
   }
 }

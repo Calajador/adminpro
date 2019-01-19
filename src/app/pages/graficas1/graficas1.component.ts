@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-graficas1',
@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Graficas1Component implements OnInit {
 
-
+@Input() positivo: number;
+@Input() negativo: number;
+@Input() neutral: number;
 
   graficos: any = {
     'grafico1': {
       'labels': ['Con Frijoles', 'Con Natilla', 'Con tocino'],
-      'data':  [24, 30, 46],
+      'data':  [33, 40, 25],
       'type': 'doughnut',
       'leyenda': 'El pan se come con'
     },

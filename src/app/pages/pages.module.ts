@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // ng2-charts
 import { ChartsModule } from 'ng2-charts';
 
 // modulos
 import { SharedModule } from '../shared/shared.module';
-
 import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../pipes/pipes.module';
+
 
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -23,6 +25,7 @@ import { GraficaDonutComponent } from '../components/grafica-donut/grafica-donut
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -36,7 +39,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     GraficaDonutComponent,
     AccountSettingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    ProfileComponent
   ],
   exports: [
     PagesComponent,
@@ -45,10 +49,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     Graficas1Component
   ],
   imports: [
+    CommonModule,
     SharedModule,
     pages_router,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    PipesModule
 
   ]
 })
