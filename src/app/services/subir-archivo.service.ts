@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { URL_SERVICIOS } from '../config/config';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Usuario } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +51,10 @@ export class SubirArchivoService {
       const formData: FormData = new FormData();
 
       formData.append('imagen', archivo, archivo.name);
-      return this.http.put(url, formData);
+      return this.http.put(url, formData)
+      .pipe(map ( (res: Usuario) => {
+        return res.img;
+      }));
 }
 
 }
