@@ -28,7 +28,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
-
+import { DepartamentosComponent } from './departamentos/departamentos.component';
+import { PersonalComponent } from './personal/personal.component';
+import { TrabajadorComponent } from './personal/trabajador.component';
 
 
 @NgModule({
@@ -44,7 +46,10 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
     RxjsComponent,
     ProfileComponent,
     UsuariosComponent,
-    ModalUploadComponent
+    ModalUploadComponent,
+    DepartamentosComponent,
+    PersonalComponent,
+    TrabajadorComponent
   ],
   exports: [
     PagesComponent,

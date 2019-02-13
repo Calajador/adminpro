@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { SubirArchivoService } from './subir-archivo.service';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -142,7 +143,7 @@ export class UsuarioService {
 
           console.log(res);
 
-          this.usuario.img = res.usuario.img;
+          this.usuario.img = res.img;
           swal('Imagen Actualizada', this.usuario.nombre, 'success');
           this.guardarStorage(id, this.token, this.usuario);
         });

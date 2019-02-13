@@ -1,0 +1,76 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+
+            <input #input (keyup)="buscarDepartamento(input.value)" type="text" class="form-control" placeholder="Buscar Departamento...">
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+  <div class="col-sm-12">
+    <div class="alert alert-warning text-center">
+      <strong>Cargando</strong>
+        <br>
+         <i class="fa fa-refresh fa-spin fa-2x"></i>
+        <br>
+        <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+   <div class="col-12">
+       <div class="card">
+           <div class="card-body">
+             <div class="text-right">
+                <button (click)="crearDepartamento()" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">Crear Departamento</button>
+             </div>
+
+            <h3 class="card-title">Total Departamentos ( <small>{{totalRegistros}}</small> ) </h3>
+
+            <table class="table table-hover">
+
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Departamento</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let departamento of departamentos" >
+                  <td class="w70">
+
+                    <img (click)="actualizarImagen(departamento)" [src]="departamento.img | imagen:'departamento'" class="img-50 img-circle pointer">
+
+                  </td>
+                  <td >{{departamento.nombre}}</td>
+
+                    <button (click)="actualizarDepartamento(departamento)" class="btn btn-primary">
+                      <i class="fa fa-save"></i>
+                    </button>
+
+                    <button (click)="borrarDepartamento(departamento)" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                </tr>
+              </tbody>
+
+            </table>
+
+            <!-- <button class="btn btn-secondary">
+              Anteriores
+            </button>
+
+            <button class="btn btn-secondary">
+                Siguientes
+              </button> -->
+
+           </div>
+       </div>
+   </div>
+</div>

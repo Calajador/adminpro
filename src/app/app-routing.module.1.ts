@@ -13,9 +13,6 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
-import { DepartamentosComponent } from './pages/departamentos/departamentos.component';
-import { PersonalComponent } from './pages/personal/personal.component';
-import { TrabajadorComponent } from './pages/personal/trabajador.component';
 
 const routes: Routes = [
   {
@@ -32,9 +29,6 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario'}},
       // Mantenimiento
       {path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios'}},
-      {path: 'departamentos', component: DepartamentosComponent, data: { titulo: 'Mantenimiento de Departamentos'}},
-      {path: 'personal', component: PersonalComponent, data: { titulo: 'Mantenimiento de Personal'}},
-      {path: 'trabajador/:id', component: TrabajadorComponent, data: { titulo: 'Actualizar trabajador'}},
       {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     ]
   },
