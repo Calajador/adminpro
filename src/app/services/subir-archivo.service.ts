@@ -53,7 +53,8 @@ export class SubirArchivoService {
       formData.append('imagen', archivo, archivo.name);
       return this.http.put(url, formData)
       .pipe(map ( (res: Usuario) => {
-        return res.img;
+        console.log(res);
+        return res;
       }));
 }
 

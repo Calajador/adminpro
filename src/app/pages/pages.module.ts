@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
+
+
 // ng2-charts
 import { ChartsModule } from 'ng2-charts';
 
@@ -31,6 +34,7 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
 import { DepartamentosComponent } from './departamentos/departamentos.component';
 import { PersonalComponent } from './personal/personal.component';
 import { TrabajadorComponent } from './personal/trabajador.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -49,7 +53,8 @@ import { TrabajadorComponent } from './personal/trabajador.component';
     ModalUploadComponent,
     DepartamentosComponent,
     PersonalComponent,
-    TrabajadorComponent
+    TrabajadorComponent,
+    BusquedaComponent
   ],
   exports: [
     PagesComponent,

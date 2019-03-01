@@ -143,7 +143,7 @@ export class UsuarioService {
 
           console.log(res);
 
-          this.usuario.img = res.img;
+          this.usuario.img = res.usuario.img;
           swal('Imagen Actualizada', this.usuario.nombre, 'success');
           this.guardarStorage(id, this.token, this.usuario);
         });

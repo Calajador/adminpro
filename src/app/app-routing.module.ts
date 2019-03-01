@@ -16,6 +16,7 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { DepartamentosComponent } from './pages/departamentos/departamentos.component';
 import { PersonalComponent } from './pages/personal/personal.component';
 import { TrabajadorComponent } from './pages/personal/trabajador.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 
 const routes: Routes = [
   {
@@ -26,10 +27,11 @@ const routes: Routes = [
       {path: 'dashboard', component: DashboardComponent, data: { titulo: 'DashBoard'}},
       {path: 'progress', component: ProgressComponent, data: { titulo: 'Progres'}},
       {path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas'}},
-      {path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'}},
-      {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs'}},
+      {path: 'promesas', component: PromesasComponent, data: { titulo: 'Contactos'}},
+      {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Pacientes'}},
       {path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema'}},
       {path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario'}},
+      {path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador'}},
       // Mantenimiento
       {path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios'}},
       {path: 'departamentos', component: DepartamentosComponent, data: { titulo: 'Mantenimiento de Departamentos'}},
